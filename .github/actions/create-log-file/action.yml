@@ -12,7 +12,7 @@ runs:
   - name: Run main
     run: |
       cd src
-      python src/main.py
+      python main.py
     shell: bash
   - name: List all directories
     run: ls
