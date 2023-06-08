@@ -1,21 +1,20 @@
 name: Create log file
 description: Create log file
 
-
 runs:
   using: composite
   steps:
-  - name: Install Python
-    uses: actions/setup-python@v4
-    with:
-      python-version: '3.10'  
-  - name: Run main
-    run: |
-      cd src
-      python main.py
-    shell: bash
-  - name: Upload artifacts
-    uses: actions/upload-artifact@v3
-    with:
-      name: log-file
-      path: resources/log.txt
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    - name: Run main
+      run: |
+        cd src
+        python main.py
+      shell: bash
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: log-file
+        path: resources/log.txt

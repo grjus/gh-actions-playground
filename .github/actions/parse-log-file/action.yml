@@ -1,0 +1,23 @@
+name: Parse log file
+description: Parse log file
+
+outputs:
+  content:
+    description: "Log file content"
+    value: ${{ steps.get-log-file.outputs.content }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: log-file
+        path: resources/log.txt
+    - name: Get log file content
+      shell: bash
+      id: get-log-file
+      run: |
+        cd resources/log.txt
+        OUTPUT_STRING=cat log.txt
+        cat log.txt
+        echo "::set-output name=get-log-file::$OUTPUT_STRING"
