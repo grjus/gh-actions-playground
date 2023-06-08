@@ -2,6 +2,10 @@ name: Create log file
 
 description: Create log file
 
+permissions:
+  id-token: write
+  contents: read
+
 runs:
   using: composite
   steps:
