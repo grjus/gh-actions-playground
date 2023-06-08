@@ -11,4 +11,3 @@ runs:
         python-version: "3.10"
     - shell: bash
     - run: python src/main.py
-    - run: ls
