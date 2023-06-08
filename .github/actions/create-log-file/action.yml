@@ -11,8 +11,8 @@ runs:
       python-version: '3.10'  
   - name: Run main
     run: |
-    cd src
-    python src/main.py
+      cd src
+      python src/main.py
     shell: bash
   - name: List all directories
     run: ls
