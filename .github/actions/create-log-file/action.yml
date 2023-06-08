@@ -12,3 +12,6 @@ runs:
   - name: Run main
     run: python src/main.py
     shell: bash
+  - name: List all directories
+    run: ls
+    shell: bash
