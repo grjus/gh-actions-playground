@@ -18,7 +18,5 @@ runs:
       id: get-log-file
       run: |
         cd resources
-        ls
-        OUTPUT_STRING=cat log.txt
-        cat log.txt
-        echo "::set-output name=get-log-file::$OUTPUT_STRING"
+        OUTPUT_STRING=$(cat log.txt)
+        echo "::set-output name=content::$OUTPUT_STRING"
