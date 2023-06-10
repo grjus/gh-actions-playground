@@ -26,4 +26,4 @@ jobs:
         uses: ./.github/actions/parse-log-file
       - name: Log data
         shell: bash
-        run: echo ${{ toJSON(steps) }}
+        run: echo ${{ toJSON(steps.parse-log-data) }}
