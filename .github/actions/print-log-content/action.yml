@@ -2,7 +2,7 @@ name: Print log content
 description: Print log content
 
 inputs:
-  log_data:
+  log-data:
     description: "log content"
     required: true
 
@@ -11,4 +11,4 @@ runs:
   steps:
     - name: Print log data
       shell: bash
-      run: echo ${{ toJSON(inputs) }}
+      run: echo ${{ toJSON(inputs.log-data) }}
