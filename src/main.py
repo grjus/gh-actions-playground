@@ -13,4 +13,4 @@ def write_string_to_file(file_name, string):
         f.write(string)
 
 if __name__ == "__main__":
-    write_string_to_file('log.txt', 'Some message')
+    write_string_to_file('log.txt', 'Message from another branch')
