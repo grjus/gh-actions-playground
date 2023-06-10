@@ -12,7 +12,7 @@ runs:
     - uses: actions/download-artifact@v3
       with:
         name: log-file
-        path: resources/log.txt
+        path: resources
     - name: Get log file content
       shell: bash
       id: get-log-file
