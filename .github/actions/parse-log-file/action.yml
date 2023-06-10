@@ -19,5 +19,5 @@ runs:
       run: |
         cd resources
         OUTPUT_STRING=$(cat log.txt)
-        echo ${{ OUTPUT_STRING }}
+        echo $OUTPUT_STRING
         echo "::set-output name=content::$OUTPUT_STRING"
