@@ -11,4 +11,4 @@ runs:
   steps:
     - name: Print log data
       shell: bash
-      run: echo "This is your log: ${inputs.log-data}"
+      run: echo "This is your log ${{ inputs.log-data }}"
