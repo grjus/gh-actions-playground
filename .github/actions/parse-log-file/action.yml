@@ -20,4 +20,4 @@ runs:
         cd resources
         OUTPUT_STRING=$(cat log.txt)
         echo $OUTPUT_STRING
-        echo "{content}={OUTPUT_STRING}" >> $GITHUB_OUTPUT
+        echo "content=$OUTPUT_STRING" >> $GITHUB_OUTPUT
