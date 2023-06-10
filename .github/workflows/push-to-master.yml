@@ -22,7 +22,7 @@ jobs:
     needs: create_log_file
     steps:
       - uses: actions/checkout@v3
-      - id: logData
+      - id: parse-log-data
         uses: ./.github/actions/parse-log-file
       - name: Log data
         shell: bash
