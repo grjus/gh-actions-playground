@@ -38,5 +38,5 @@ jobs:
     steps:
      - name: Log data from job
        shell: bash
-       run: echo "This is log from job >>>> ${{ needs.parse_log_files.outputs.log-output }}"
+       run: echo "This is log from job >>>> ${{ needs.parse_log_file.outputs.log-output }}"
     
