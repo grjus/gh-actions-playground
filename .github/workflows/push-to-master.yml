@@ -20,6 +20,8 @@ jobs:
   parse_log_file:
     runs-on: ubuntu-latest
     needs: create_log_file
+    outputs:
+      log-output: ${{ steps.parse-log-data.outputs.content }}
     steps:
       - uses: actions/checkout@v3
       - id: parse-log-data
@@ -30,3 +32,11 @@ jobs:
       - uses: ./.github/actions/print-log-content
         with:
           log-data: ${{ steps.parse-log-data.outputs.content }}
+  log_data_from_job:
+    runs-on: ubuntu-latest
+    needs: parse_log_file
+    steps:
+     - name: Log data from job
+       shell: bash
+       run: echo "This is log from job >>>> ${{ needs.parse_log_files.outputs.log-output }}"
+    
