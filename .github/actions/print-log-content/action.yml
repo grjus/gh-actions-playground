@@ -11,5 +11,5 @@ runs:
   using: composite
   steps:
      - name: Print log data
-     shell: bash
-     run: echo "This is your log: ${inputs.log_data}
+       shell: bash
+       run: echo "This is your log: ${inputs.log_data}
