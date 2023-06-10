@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: create_log_file
     steps:
+      - uses: actions/checkout@v3
       - id: log-data
         uses: ./.github/actions/parse-log-file
       - uses: ./.github/actions/print-log-content
