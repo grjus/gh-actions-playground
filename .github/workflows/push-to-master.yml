@@ -24,6 +24,6 @@ jobs:
       - uses: actions/checkout@v3
       - id: log-data
         uses: ./.github/actions/parse-log-file
-      - uses: ./.github/actions/print-log-content
-        with:
-          log_data: ${{ steps.log-data.outputs.content }}
+      - name: Log data
+        shell: bash
+        run: echo "This is your log file: ${{ steps.log-data.outputs.content }}
