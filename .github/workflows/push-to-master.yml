@@ -27,3 +27,6 @@ jobs:
       - name: Log data
         shell: bash
         run: echo ${{ steps.parse-log-data.outputs.content }}
+      - uses: ./.github/actions/print-log-content
+        with:
+          log_data: ${{ steps.parse-log-data.outputs.content }}
