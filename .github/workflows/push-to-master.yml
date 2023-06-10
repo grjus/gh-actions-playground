@@ -21,4 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: create_log_file
     steps:
-      - uses: ./.github/actions/create-log-file
+      - id: log-data
+        uses: ./.github/actions/parse-log-file
+      - uses: ./.github/actions/print-log-content
+        with:
+          log_data: ${{ steps.log-data.outputs.content }}
