@@ -22,8 +22,8 @@ jobs:
     needs: create_log_file
     steps:
       - uses: actions/checkout@v3
-      - id: log-data
+      - id: logData
         uses: ./.github/actions/parse-log-file
       - name: Log data
         shell: bash
-        run: echo "This is your log file: ${{ steps.log-data.outputs.content }}"
+        run: echo "This is your log file: ${{ steps.logData.outputs.content }}"
