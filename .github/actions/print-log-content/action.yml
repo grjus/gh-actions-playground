@@ -12,4 +12,4 @@ runs:
   steps:
      - name: Print log data
        shell: bash
-       run: echo "This is your log: ${{ inputs.log_data }}"
+       run: echo "This is your log"
