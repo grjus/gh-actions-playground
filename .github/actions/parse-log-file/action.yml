@@ -19,4 +19,4 @@ runs:
       run: |
         cd resources
         OUTPUT_STRING=$(cat log.txt)
-        echo "::set-output name=content::$OUTPUT_STRING"
+        echo "{content}={OUTPUT_STRING}" >> $GITHUB_OUTPUT
