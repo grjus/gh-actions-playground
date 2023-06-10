@@ -1,15 +1,14 @@
 name: Print log content
-
 description: Print log content
 
 inputs:
   log_data:
-    description: log content
+    description: "log content"
     required: true
 
 runs:
-  using: composite
+  using: 'composite'
   steps:
-     - name: Print log data
-       shell: bash
-       run: echo "This is your log: ${{ inputs.log_data }}"
+    - name: Print log data
+      shell: bash
+      run: echo "This is your log: ${{ inputs.log_data }}"
