@@ -48,9 +48,10 @@ jobs:
         run: echo "This is log from job >>>> ${{ needs.parse_log_file.outputs.log-output }}"
   log_branch_name:
     runs-on: ubuntu-latest
+    needs: parse_log_file
     steps:
       - name: Loging branch name >> ${{ github.event.inputs.branch }}
         shell: bash
-        run: echo "This is your branch >> ${{ github.event.inputs.branch }}
+        run: echo "This is your branch >> ${{ github.event.inputs.branch }}"
         
   
