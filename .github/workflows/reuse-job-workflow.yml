@@ -1,0 +1,17 @@
+name: Reuse job workflow
+on:
+  workflow_dispatch:
+
+
+jobs:
+  compliance:
+    uses: ./.github/workflows/reusable-workflow
+  another_step:
+    name: Another log
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log from another job
+        shell: bash
+        run: "Hello from another job"
+
+
