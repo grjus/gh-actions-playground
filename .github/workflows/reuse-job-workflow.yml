@@ -13,6 +13,15 @@ jobs:
     steps:
       - name: Log from another job
         shell: bash
-        run: "Hello from another job"
+        run: echo "Hello from another job"
+      - uses: actions/download-artifact@v3
+        with:
+          name: log-file
+          path: resources
+      - name: Referencing to artifact
+        shell: bash
+        run: |
+          cd resources
+          echo "Here is a content of the log file >>> ${log.txt}"
 
 
