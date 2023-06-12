@@ -4,11 +4,12 @@ on:
 
 
 jobs:
-  compliance:
+  my_workflow:
     uses: ./.github/workflows/reusable-workflow.yml
   another_step:
     name: Another log
     runs-on: ubuntu-latest
+    needs: my_workflow
     steps:
       - name: Log from another job
         shell: bash
