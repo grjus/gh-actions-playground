@@ -5,7 +5,7 @@ on:
 
 jobs:
   compliance:
-    uses: ./.github/workflows/reusable-workflow
+    uses: ./.github/workflows/reusable-workflow.yml
   another_step:
     name: Another log
     runs-on: ubuntu-latest
