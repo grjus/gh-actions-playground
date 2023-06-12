@@ -22,6 +22,6 @@ jobs:
         shell: bash
         run: |
           cd resources
-          echo "Here is a content of the log file >>> ${log.txt}"
+          echo "Here is a content of the log file >>> $(cat log.txt)"
 
 
