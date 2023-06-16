@@ -18,7 +18,7 @@ runs:
       id: download-artifact
       with:
         name: web-content
-        path: zipped-web-content.zip
+        path: ghactions-bff/src/main/resources/zip-web-content.zip
     - name: Unzip web-static artifact
       uses: montudor/action-zip@v1
       with:

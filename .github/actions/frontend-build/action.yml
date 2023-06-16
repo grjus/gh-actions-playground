@@ -39,4 +39,4 @@ runs:
       uses: actions/upload-artifact@v3
       with:
         name: web-content
-        path: ghactions-bff/src/main/resources/zipped-web-content.zip
+        path: ghactions-bff/src/main/resources/zip-web-content.zip
