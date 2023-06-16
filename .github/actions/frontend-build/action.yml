@@ -25,7 +25,7 @@ runs:
       uses: montudor/action-zip@v1
     - name: Zip content
       shell: bash
-      run: zip -qq -r web-content.zip static
+      run: zip -qq -r zip-web-content.zip static
       working-directory: ghactions-bff/src/main/resources
     - name: Upload web-static artifact
       uses: actions/upload-artifact@v3
