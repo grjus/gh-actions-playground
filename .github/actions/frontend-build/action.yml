@@ -27,8 +27,16 @@ runs:
       shell: bash
       run: zip -qq -r zip-web-content.zip static
       working-directory: ghactions-bff/src/main/resources
+    - name: Log stuff
+      shell: bash
+      run: |
+        echo "Main directory"
+        ls
+        cd ghactions-bff/src/main/resources
+        echo "Resources"
+        ls
     - name: Upload web-static artifact
       uses: actions/upload-artifact@v3
       with:
         name: web-content
-        path: zipped-web-content.zip
+        path: ghactions-bff/src/main/resources/zipped-web-content.zip
