@@ -1,0 +1,26 @@
+name: Frontend build
+description: Frontend build
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: npm
+        cache-dependency-path: package-lock.json
+    - name: Build frontend dependencies
+      shell: bash
+      run: |
+        cd ghactions-web
+        npm ci
+    - name: Copy frontend build to bff
+      shell: bash
+      run: |
+        cd ghactions-web
+        npm run copy-web-dist
+    - name: Run ls command
+      shell: bash
+      run: |
+        ls
