@@ -54,5 +54,9 @@ jobs:
       - name: Log bff static files
         shell: bash
         run: |
+          echo "resources folder content"
           cd ghactions-bff/src/main/resources
+          ls
+          cd static
+          echo "static folder content"
           ls

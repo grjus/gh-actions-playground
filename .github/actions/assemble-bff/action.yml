@@ -23,4 +23,11 @@ runs:
       uses: montudor/action-zip@v1
       with:
         args: unzip -qq ghactions-bff/src/main/resources/zip-web-content.zip -d ghactions-bff/src/main/resources
+    - name: Delete artifact
+      uses: geekyeggo/delete-artifact@v2
+      with:
+        name: web-content
+    - name: Delete zip-web-content
+      shell: bash
+      run: rm ghactions-bff/src/main/resources/zip-web-content.zip
 
