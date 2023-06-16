@@ -1,0 +1,13 @@
+{
+  "description": "ghactions root",
+  "version": "1.0.0",
+  "scripts": {
+    "start:web": "cd ghactions-web && npm run dev",
+    "start:bff": "./gradlew bootrun",
+    "start": "concurrently --kill-others \"npm run start:web\" \"npm run start:bff\""
+  },
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
