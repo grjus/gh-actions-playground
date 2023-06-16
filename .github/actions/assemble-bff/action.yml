@@ -17,8 +17,8 @@ runs:
       uses: actions/download-artifact@v3
       with:
         name: bff-resources-content
-        path: web-content.zip
+        path: web-static.zip
     - name: Unzip web-static artifact
       shell: bash
-      run: unzip web-content.zip ghactions-bff/src/main/resources/
+      run: unzip web-static.zip ghactions-bff/src/main/resources/
 
