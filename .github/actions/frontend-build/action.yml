@@ -21,7 +21,3 @@ runs:
         cd ghactions-web
         npm run build
         npm run copy-web-dist
-    - name: Run ls command
-      shell: bash
-      run: |
-        ls
