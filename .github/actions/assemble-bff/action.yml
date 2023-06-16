@@ -22,5 +22,5 @@ runs:
     - name: Unzip web-static artifact
       uses: montudor/action-zip@v1
       with:
-        args: unzip -qq ${{steps.download-artifact.outputs.download-path}} -d ghactions-bff/src/main/resources
+        args: unzip -qq ${{steps.download-artifact.outputs.download-path}}/zip-web-content.zip -d ghactions-bff/src/main/resources
 
