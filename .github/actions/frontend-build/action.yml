@@ -21,11 +21,11 @@ runs:
         cd ghactions-web
         npm run build
         npm run copy-web-dist
-    - name: Zip bff frontend build
+    - name: Install zip
       uses: montudor/action-zip@v1
+    - name: Zip content
+      run: zip -qq -r web-content.zip static
       working-directory: ghactions-bff/src/main/resources
-      with:
-        args: zip -qq -r web-content.zip static
     - name: Upload web-static artifact
       uses: actions/upload-artifact@v3
       with:
