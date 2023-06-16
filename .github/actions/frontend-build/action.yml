@@ -23,7 +23,7 @@ runs:
         npm run copy-web-dist
     - name: Zip bff frontend build
       shell: bash
-      run: web-static_${{ github.run_id }}.zip ghactions-bff/src/main/resources/* -r
+      run: zip web-static_${{ github.run_id }}.zip ghactions-bff/src/main/resources/* -r
     - name: Upload web-static artifact
       uses: actions/upload-artifact@v3
       with:
