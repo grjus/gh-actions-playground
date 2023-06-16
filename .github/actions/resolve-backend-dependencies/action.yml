@@ -12,5 +12,5 @@ runs:
     - name: Setup Gradle and download dependencies
       uses: gradle/gradle-build-action@v2
       with:
-        command: downloadDependencies
+        arguments: downloadDependencies
 
