@@ -37,9 +37,9 @@ jobs:
           cd ghactions-bff/src/main/resources/static
           ls
   release-please:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: google-github-actions/release-please-action@v3
-      with:
-        release-type: java
-        package-name: ghactions-bff/build.gradle.kts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: java
+          package-name: ghactions-bff/build.gradle.kts
