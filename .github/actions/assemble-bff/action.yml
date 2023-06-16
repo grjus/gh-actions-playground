@@ -1,5 +1,5 @@
-name: Resolve backend dependencies
-description: Resolve backend dependencies
+name: Assemble bff
+description: Assemble bff
 
 runs:
   using: 'composite'
@@ -9,8 +9,8 @@ runs:
       with:
         distribution: temurin
         java-version: 17
-    - name: Setup Gradle and download dependencies
+    - name: Assemble bff
       uses: gradle/gradle-build-action@v2
       with:
-        command: downloadDependencies
+        command: assemble test -x
 
