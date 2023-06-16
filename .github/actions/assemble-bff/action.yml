@@ -20,5 +20,5 @@ runs:
         path: web-static.zip
     - name: Unzip web-static artifact
       shell: bash
-      run: unzip web-static.zip ghactions-bff/src/main/resources/
+      run: unzip ./web-static.zip ghactions-bff/src/main/resources/
 
