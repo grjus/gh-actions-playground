@@ -31,4 +31,4 @@ runs:
       uses: actions/upload-artifact@v3
       with:
         name: web-content
-        path: zipped-web-content
+        path: zipped-web-content.zip
