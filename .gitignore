@@ -1,0 +1,16 @@
+.gradle
+.java-version
+.idea
+.vscode
+out
+dist
+.DS_Store
+build
+node_modules
+*.iml
+classes
+project-name-web/dist
+.log/
+NOTES.md
+yarn-error.log
+ghactions-bff/src/main/resources/static/
