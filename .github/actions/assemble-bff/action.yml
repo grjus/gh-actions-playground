@@ -18,8 +18,8 @@ runs:
       id: download-artifact
       with:
         name: bff-resources-content
-        path: ghactions-bff/src/main/resources/web-static_${{ github.run_id }}.zip
+        path: web-static_${{ github.run_id }}.zip
     - name: Unzip web-static artifact
       shell: bash
-      run: unzip ${{steps.download-artifact.outputs.download-path}} -d ghactions-bff/src/main/resources/
+      run: unzip ./ghactions-bff/src/main/resources/web-static_${{ github.run_id }}.zip-d ghactions-bff/src/main/resources/
 
