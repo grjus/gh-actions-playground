@@ -32,9 +32,7 @@ jobs:
       - name: Build frontend
         uses: ./.github/actions/frontend-build
       - name: Log bff static files
-        steps:
-          - name: Log bff static files
-            shell: bash
-            run: |
-              cd ghactions-bff/src/main/resources/static
-              ls
+          shell: bash
+          run: |
+            cd ghactions-bff/src/main/resources/static
+            ls
