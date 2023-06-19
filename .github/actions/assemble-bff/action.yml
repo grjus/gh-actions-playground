@@ -20,9 +20,8 @@ runs:
         name: web-content
         path: ghactions-bff/src/main/resources
     - name: Unzip web-static artifact
-      uses: montudor/action-zip@v1
-      with:
-        args: unzip -qq ghactions-bff/src/main/resources/zip-web-content.zip -d ghactions-bff/src/main/resources
+      shell: bash
+      run: unzip -qq ghactions-bff/src/main/resources/zip-web-content.zip -d ghactions-bff/src/main/resources
     - name: Delete artifact
       uses: geekyeggo/delete-artifact@v2
       with:

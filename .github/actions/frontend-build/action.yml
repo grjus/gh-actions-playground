@@ -21,8 +21,6 @@ runs:
         cd ghactions-web
         npm run build
         npm run copy-web-dist
-    - name: Install zip
-      uses: montudor/action-zip@v1
     - name: Zip content
       shell: bash
       run: zip -qq -r zip-web-content.zip static
