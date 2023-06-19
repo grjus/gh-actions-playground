@@ -4,15 +4,6 @@ description: Assemble bff
 runs:
   using: 'composite'
   steps:
-    - name: Setup java
-      uses: actions/setup-java@v3
-      with:
-        distribution: temurin
-        java-version: 17
-    - name: Assemble bff
-      uses: gradle/gradle-build-action@v2
-      with:
-        arguments: assemble
     - name: Download web-static artifact
       uses: actions/download-artifact@v3
       id: download-artifact
@@ -29,4 +20,18 @@ runs:
     - name: Delete zip-web-content
       shell: bash
       run: rm ghactions-bff/src/main/resources/zip-web-content.zip
+    - name: Setup java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 17
+    - name: Build bff
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build
+    - name: Upload bff build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-build
+        path: ghactions-bff/build/libs
 
