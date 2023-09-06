@@ -17,14 +17,12 @@ jobs:
         with:
           ref: ${{ github.event.inputs.branch }}
           fetch-depth: 0
-      - name: Create branch 
+      - name: Create hotpatch branch 
         shell: bash
         run: |
+          branch_name=hot_patch-${{ github.event.inputs.branch }}
           git config user.name "GithubActions"
-          git config user.email "some_name@pm.com"
-          echo "Creating patch branch"
-          git checkout -b hot_patch-${{ github.event.inputs.branch }}
-          git push --set-upstream origin hot_patch-${{ github.event.inputs.branch }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-
+          git config user.email "dsi@technipfmc.com"
+          echo "Creating hotpatch branch"
+          git checkout -b $branch_name
+          git push --set-upstream origin $branch_name
