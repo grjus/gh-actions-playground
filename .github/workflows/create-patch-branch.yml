@@ -1,0 +1,37 @@
+name: Create hot patch branch
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Select tag
+        default: main
+        required: true
+
+jobs:
+  create_branch:
+    name: Create hot path branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          fetch-depth: 0
+      - name: Create branch 
+        shell: bash
+        run: |
+          try() {
+            git config user.name "GithubActions"
+            git config user.email "some_name@pm.com"
+            echo "Creating patch branch"
+            output = $(git checkout -b hot_patch)
+            if [[ $output == *"error:"* ]]; then
+                return 1
+            fi
+            git push --set-upstream origin hot_patch
+          }
+          catch() {
+            echo "Error creating branch. Most likely hot fix for tag ${ github.event.inputs.branch } already exists"
+          }
+          try || catch
+
