@@ -15,4 +15,14 @@ runs:
       run: |
         cd ghactions-bff/build/libs
         ls
+    - name: Setup java
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 17
+    - name: Boot run
+      shell: bash
+      working-directory: ghactions-bff/build/libs
+      run: java -jar ghactions-bff-0.0.1-SNAPSHOT.jar
+
 

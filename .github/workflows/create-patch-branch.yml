@@ -1,0 +1,27 @@
+name: Create hot patch branch
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Select tag
+        default: main
+        required: true
+
+jobs:
+  create_branch:
+    name: Create hot path branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch }}
+      - name: Create branch 
+        shell: bash
+        run: |
+          git config user.name "GithubActions"
+          git config user.email "some_name@pm.com"
+          echo "Creating patch branch"
+          git checkout -b hot_patch
+          git push --set-upstream origin hot_patch
+
