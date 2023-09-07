@@ -12,6 +12,13 @@ jobs:
     name: Create hot path branch
     runs-on: ubuntu-latest
     steps:
+      - name: Validate user input
+        shell: bash
+        run: |
+          input="${{ github.event.inputs.branch}}"
+          if [[ ! $input =~ ^[0-9]+\.[0-9]+$ ]]; then
+            echo "Invalid tag format. Make sure that tag is specified as ${number}.${number}. Patch versions are not allowed."
+            exit 1
       - name: Checkout code
         uses: actions/checkout@v3
         with:
@@ -20,15 +27,9 @@ jobs:
       - name: Create hotpatch branch 
         shell: bash
         run: |
-          input="${{ github.event.inputs.branch}}"
-          if [[ ! $input =~ ^[0-9]+\.[0-9]+$ ]]; then
-            echo "Invalid tag format. Make sure that tag is specified as $number.$number. Patch versions are not allowed."
-            exit 1
-          else
             branch_name=hot_patch-${{ github.event.inputs.branch }}
             git config user.name "GithubActions"
             git config user.email "dsi@technipfmc.com"
             echo "Creating hotpatch branch"
             git checkout -b $branch_name
             git push --set-upstream origin $branch_name
-          fi
