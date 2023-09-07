@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: Select tag
+        description: Provide image tag
         default: main
         required: true
 
@@ -16,8 +16,8 @@ jobs:
         shell: bash
         run: |
           input="${{ github.event.inputs.branch}}"
-          if [[ ! $input =~ ^[0-9]+\.[0-9]+$ ]]; then
-            echo "Invalid tag format. Make sure that tag is specified as ${number}.${number}. Patch versions are not allowed."
+          if [[ ! $input =~ ^[0-9]+[.][0-9]+[.]0$ ]]; then
+            echo "Invalid tag format. Make sure that tag is specified as <<number>>.<<number>>.0 Patch version should be 0"
             exit 1
           fi
       - name: Checkout code
@@ -28,7 +28,7 @@ jobs:
       - name: Create hotpatch branch 
         shell: bash
         run: |
-            branch_name=hot_patch-${{ github.event.inputs.branch }}
+            branch_name=hotpatch-${{ github.event.inputs.branch }}
             git config user.name "GithubActions"
             git config user.email "dsi@technipfmc.com"
             echo "Creating hotpatch branch"
