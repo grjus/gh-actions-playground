@@ -8,6 +8,18 @@ on:
         required: true
 
 jobs:
+  validate_hotpatch_branch:
+    name: Validate hotpatch branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate user input
+        shell: bash
+        run: |
+          input="${{ github.event.inputs.branch}}"
+          if [[ ! $input =~ ^hotpatch-[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error ::Invalid branch. Only the 'hotpatch' branch is allowed for deployment.""
+            exit 1
+          fi
   create_branch:
     name: Create hot path branch
     runs-on: ubuntu-latest
@@ -17,7 +29,7 @@ jobs:
         run: |
           input="${{ github.event.inputs.branch}}"
           if [[ ! $input =~ ^[0-9]+[.][0-9]+[.]0$ ]]; then
-            echo "::workflow-command Invalid tag format. Make sure that tag is specified as <<number>>.<<number>>.0 Patch version should be 0"
+            echo "::error ::Invalid tag format. Make sure that tag is specified as <<number>>.<<number>>.0 Patch version should be 0"
             exit 1
           fi
       - name: Checkout code
