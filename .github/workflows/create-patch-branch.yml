@@ -19,6 +19,7 @@ jobs:
           if [[ ! $input =~ ^[0-9]+\.[0-9]+$ ]]; then
             echo "Invalid tag format. Make sure that tag is specified as ${number}.${number}. Patch versions are not allowed."
             exit 1
+          fi
       - name: Checkout code
         uses: actions/checkout@v3
         with:
