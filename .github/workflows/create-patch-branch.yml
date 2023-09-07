@@ -20,9 +20,14 @@ jobs:
       - name: Create hotpatch branch 
         shell: bash
         run: |
-          branch_name=hot_patch-${{ github.event.inputs.branch }}
-          git config user.name "GithubActions"
-          git config user.email "dsi@technipfmc.com"
-          echo "Creating hotpatch branch"
-          git checkout -b $branch_name
-          git push --set-upstream origin $branch_name
+          if [[ ! $input =~ ^[0-9]+\.[0-9]+$ ]]; then
+            echo "Invalid tag format. Make sure that tag is specified as $number.$number. Patch versions are not allowed."
+            exit 1
+          else
+            branch_name=hot_patch-${{ github.event.inputs.branch }}
+            git config user.name "GithubActions"
+            git config user.email "dsi@technipfmc.com"
+            echo "Creating hotpatch branch"
+            git checkout -b $branch_name
+            git push --set-upstream origin $branch_name
+          fi
