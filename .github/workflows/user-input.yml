@@ -1,0 +1,51 @@
+name: Publish stuff
+run-name: "Name of the run"
+on:
+  workflow_dispatch:
+    inputs:
+      option_name:
+        description: 'Name of the component to publish'
+        required: true
+        default: 'AudioStreamer'
+        type: choice
+        options:
+          - 'OptionOne'
+          - 'OptionTwo'
+          - 'OptionThree'
+  push:
+    branches:
+      - main
+
+jobs:
+  map-working-directory:
+    runs-on: ubuntu-latest
+    steps:
+      - id: map
+        run: | 
+          case "${{ github.event.inputs.option_name }}" in
+            "OptionOne")
+              echo "working-directory=components/option-one" >> $GITHUB_OUTPUT
+              ;;
+            "OptionTwo")
+              echo "working-directory=components/option-two" >> $GITHUB_OUTPUT
+              ;;
+            "OptionThree")
+              echo "working-directory=components/option-three" >> $GITHUB_OUTPUT
+              ;;
+            *)
+              echo "::error::Unknown component name: ${{ github.event.inputs.option_name }}"
+              exit 1
+              ;;
+          esac
+    outputs:
+      working-directory: ${{ steps.map.outputs.working-directory }}
+
+  build:
+    name: Read variables
+    runs-on: ubuntu-latest
+    needs: map-working-directory
+    steps:
+
+      - name: Log variables
+        run: |
+          echo "Working directory: ${{ needs.map-working-directory.outputs.working-directory  }}"
