@@ -22,21 +22,8 @@ jobs:
     steps:
       - id: map
         run: | 
-          case "${{ github.event.inputs.option_name }}" in
-            "OptionOne")
-              echo "working-directory=components/option-one" >> $GITHUB_OUTPUT
-              ;;
-            "OptionTwo")
-              echo "working-directory=components/option-two" >> $GITHUB_OUTPUT
-              ;;
-            "OptionThree")
-              echo "working-directory=components/option-three" >> $GITHUB_OUTPUT
-              ;;
-            *)
-              echo "::error::Unknown component name: ${{ github.event.inputs.option_name }}"
-              exit 1
-              ;;
-          esac
+          chmod +x ./path-mapper.sh
+          ./path-mapper.sh ${{ github.event.inputs.option_name }}
     outputs:
       working-directory: ${{ steps.map.outputs.working-directory }}
 
