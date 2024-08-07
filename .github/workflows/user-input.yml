@@ -22,6 +22,7 @@ jobs:
     steps:
       - id: map
         run: | 
+          ls -la
           chmod +x ./.github/workflows/path-mapper.sh
           ./.github/workflows/path-mapper.sh ${{ github.event.inputs.option_name }}
     outputs:
